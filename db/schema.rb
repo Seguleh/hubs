@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_02_19_004844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hubs", force: :cascade do |t|
+    t.string "country_code"
+    t.string "locode"
+    t.string "name"
+    t.string "dia_name"
+    t.string "function"
+    t.string "status"
+    t.string "date"
+    t.string "iata"
+    t.float "lat"
+    t.float "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

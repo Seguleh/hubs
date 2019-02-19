@@ -34,6 +34,7 @@ gem 'rubyzip'
 gem 'bootstrap'
 gem 'kaminari'
 gem 'autoprefixer-rails'
+gem 'activerecord-import', '~> 0.28.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # Use Capistrano for deployment
