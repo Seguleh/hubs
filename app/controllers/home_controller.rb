@@ -44,9 +44,11 @@ class HomeController < ApplicationController
 
   def load_data_local
     unless Hub.first.present?
+      # Test for file open, test file is zip file
       Zip::File.open(Rails.public_path+'loc182csv.zip') do |files|
         data = []
         files.glob('*UNLOCODE*.csv') do |file|
+          # Test for get_input_stream.read, contains string, contains parsable data
           csv = CSV.parse(file.get_input_stream.read)
           csv.each do |row|
             if row[10].present?
