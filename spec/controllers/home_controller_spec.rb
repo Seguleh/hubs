@@ -16,15 +16,15 @@ RSpec.describe HomeController, type: :controller do
   end
   
   describe "File & data handling" do
-    it "file opens" do
+    it "should open file" do
       
     end
     
-    it "file is zip type" do
+    it "should handle only zip file type" do
       
     end
     
-    it "file data is read" do
+    it "reads data correctly" do
       
     end
   end
