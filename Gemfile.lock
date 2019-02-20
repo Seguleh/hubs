@@ -46,10 +46,12 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    ajax-datatables-rails (1.0.0)
+      railties (>= 4.2)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.4.7)
+    autoprefixer-rails (9.4.8)
       execjs
     bindex (0.5.0)
     bootsnap (1.4.0)
@@ -86,6 +88,8 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.9.25-x64-mingw32)
+    font-awesome-sass (5.2.0)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     httparty (0.16.4)
@@ -97,6 +101,11 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-datatables-rails (3.4.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -245,6 +254,7 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
+    will_paginate (3.1.6)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -253,6 +263,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import (~> 0.28.1)
+  ajax-datatables-rails
   autoprefixer-rails
   bootsnap (>= 1.1.0)
   bootstrap
@@ -260,8 +271,10 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper (= 1.2.0)
   coffee-rails (~> 4.2)
+  font-awesome-sass (= 5.2.0)
   httparty
   jbuilder (~> 2.5)
+  jquery-datatables-rails
   jquery-rails
   kaminari
   pg
@@ -277,6 +290,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate
 
 RUBY VERSION
    ruby 2.5.3p105

@@ -14,17 +14,21 @@ RSpec.describe HomeController, type: :controller do
       expect(response.status).to eq(200)
     end
   end
-  
+
   describe "File & data handling" do
     it "should open file" do
-      
+
     end
-    
+
     it "should handle only zip file type" do
-      
+
     end
-    
+
     it "reads data correctly" do
+
+    end
+
+    it "converts data correctly" do
       
     end
   end

@@ -35,6 +35,10 @@ gem 'bootstrap'
 gem 'kaminari'
 gem 'autoprefixer-rails'
 gem 'activerecord-import', '~> 0.28.1'
+gem 'jquery-datatables-rails'
+gem 'ajax-datatables-rails'
+gem 'will_paginate'
+gem 'font-awesome-sass', '5.2.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 # Use Capistrano for deployment
@@ -46,7 +50,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
 end
 
 group :development do
