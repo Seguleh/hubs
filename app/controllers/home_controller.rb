@@ -27,11 +27,15 @@ class HomeController < ApplicationController
   #                 l1 = row[10].to_s.split(' ')[0]
   #                 l2 = row[10].to_s.split(' ')[1]
   #                 # Convert to lat-lon coordinates format
-  #                 lat = l1.include?('N') ? (l1.tr('N','').to_f)/100 : -1*(l1.tr('S','').to_f)/100
-  #                 lon = l2.include?('E') ? (l2.tr('E','').to_f)/100 : -1*(l1.tr('W','').to_f)/100
+  #                 # Done taking into consideration the given format: lat -> ddmm and lon-> dddmm
+  #                 # from the UN manual pdf where the last two are ALWAYS mm
+  #                 # TODO Test for format consistency and decimal latlon result as expected
+  #                 lat = l1.include?('N') ? (l1.tr('N','').first(2).to_f+(l1.tr('N','').last(2).to_f)/60) : -1*((l1.tr('S','').first(2).to_f+(l1.tr('S','').last(2).to_f)/60))
+  #                 lon = l2.include?('E') ? (l2.tr('E','').first(3).to_f+(l2.tr('E','').last(2).to_f)/60) : -1*((l2.tr('W','').first(3).to_f+(l2.tr('W','').last(2).to_f)/60))
   #                 country_code: row[1],
   #                 locode: row[2],
   #                 # Database compatibility encoding
+  #                 # TODO Test enconding is working as expected
   #                 name: row[3].force_encoding('iso-8859-1').encode('utf-8'),
   #                 dia_name: row[4],
   #                 function: row[6],
@@ -52,6 +56,7 @@ class HomeController < ApplicationController
   #   # TODO Database already loaded response
   # end
 
+  # Made this to test locally and save time from downloading from url
   def load_data_local
     unless Hub.first.present?
       Zip::File.open(Rails.public_path+'loc182csv.zip') do |files|
@@ -62,8 +67,8 @@ class HomeController < ApplicationController
             if row[10].present?
               l1 = row[10].to_s.split(' ')[0]
               l2 = row[10].to_s.split(' ')[1]
-              lat = l1.include?('N') ? (l1.tr('N','').to_f)/100 : -1*(l1.tr('S','').to_f)/100
-              lon = l2.include?('E') ? (l2.tr('E','').to_f)/100 : -1*(l1.tr('W','').to_f)/100
+              lat = l1.include?('N') ? (l1.tr('N','').first(2).to_f+(l1.tr('N','').last(2).to_f)/60) : -1*((l1.tr('S','').first(2).to_f+(l1.tr('S','').last(2).to_f)/60))
+              lon = l2.include?('E') ? (l2.tr('E','').first(3).to_f+(l2.tr('E','').last(2).to_f)/60) : -1*((l2.tr('W','').first(3).to_f+(l2.tr('W','').last(2).to_f)/60))
               hash = {
                 country_code: row[1],
                 locode: row[2],
