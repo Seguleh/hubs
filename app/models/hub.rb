@@ -1,4 +1,5 @@
 class Hub < ActiveRecord::Base
+  # Validations all done on the database side to optimize transaction speed
   class << self    
     def upload_data(unlocodes)
       transaction do
