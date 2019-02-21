@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get  'search',          to: 'home#search'
   get  'find',            to: 'home#find'
   get  'load_data_local', to: 'home#load_data_local', as: 'load_data_local'
+  get  'find_nearest',    to: 'home#find_nearest',    as: 'find_nearest'
 
 end
