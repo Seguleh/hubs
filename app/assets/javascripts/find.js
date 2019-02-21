@@ -17,7 +17,6 @@ function geocodeAddress(geocoder, resultsMap) {
     data:     {'address': document.getElementById('address').value},
     type:     'GET',
     success: function(response) {
-      console.log(response)
       if (response.status === 'OK') {
         var nearest = {lat: response.nearest[1], lng: response.nearest[2]}
         resultsMap.setCenter(nearest);

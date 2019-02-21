@@ -11,11 +11,10 @@ $(document).ready(function() {
   $("#data-load").click(function() {
     showLoading()
     $.ajax({
-      url:      '/load_data_local',
+      url:      '/load_data_external',
       type:     'GET',
       complete: function(result) {
         hideLoading()
-        console.log(result.responseJSON.status)
       }
     })
   });
