@@ -55,7 +55,7 @@ class HomeController < ApplicationController
   #   render json: {status: 'Finished'}
   # end
 
-  # Made this to test locally and save time from downloading from url
+  # Made this to test locally and save time downloading from url
   def load_data_local
     unless Hub.first.present?
       Zip::File.open(Rails.public_path+'loc182csv.zip') do |files|
@@ -119,16 +119,20 @@ class HomeController < ApplicationController
     # which I just semi-researched as a more-than-enough range by countries area in km and distribution of hubs
     # considering 6 degrees latitude are more than 600km up and 600km down from origin and longitude is a bit tricky
     locations = Hub.where(lat: lat-3..lat+3, lon: lng-3..lng+3)
-    coordinates = locations.pluck(:lat, :lon, :id)
-    array = []
-    # Was planning on using geokit or geocoder gems but I think this works, not as efficient as the gems I think
-    coordinates.each do |crd|
-      array << [distance([lat,lng], [crd[0], crd[1]]), crd[0], crd[1], crd[2]]
-    end
-    nrst = array.sort.first
-    hub = Hub.find(nrst[3])
+    if locations.present?
+      coordinates = locations.pluck(:lat, :lon, :id)
+      array = []
+      # Was planning on using geokit or geocoder gems but I think this works, not as efficient as the gems I think
+      coordinates.each do |crd|
+        array << [distance([lat,lng], [crd[0], crd[1]]), crd[0], crd[1], crd[2]]
+      end
+      nrst = array.sort.first
+      hub = Hub.find(nrst[3])
 
-    render json: {result: formatted['results'], status: formatted['status'], nearest: nrst, info: hub}
+      render json: {result: formatted['results'], status: formatted['status'], nearest: nrst, info: hub}
+    else
+      render json: {status: 0}
+    end
   end
 
   # Haversine formula code from https://stackoverflow.com/a/12969617

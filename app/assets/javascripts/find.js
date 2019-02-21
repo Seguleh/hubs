@@ -17,6 +17,7 @@ function geocodeAddress(geocoder, resultsMap) {
     data:     {'address': document.getElementById('address').value},
     type:     'GET',
     success: function(response) {
+      console.log(response)
       if (response.status === 'OK') {
         var nearest = {lat: response.nearest[1], lng: response.nearest[2]}
         resultsMap.setCenter(nearest);
@@ -28,7 +29,7 @@ function geocodeAddress(geocoder, resultsMap) {
         $('.nearest-name').html(response.info.name)
         $('.nearest-cc').html(response.info.country_code)
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        $('.nearest-name').html('Sadly there are no hubs near, please try a different address');
       }
     },
     error: function(){
