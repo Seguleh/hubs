@@ -8,6 +8,11 @@ function initMap() {
   document.getElementById('coordinatesClick').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
+  $('#coordinatesClick').keypress(function(e) {
+    if (e.which === 13) {
+      geocodeAddress(geocoder, map);
+    }
+  });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
@@ -28,7 +33,7 @@ function geocodeAddress(geocoder, resultsMap) {
         $('.nearest-name').html(response.info.name)
         $('.nearest-cc').html(response.info.country_code)
       } else {
-        $('.nearest-name').html('Sadly there are no hubs near, please try a different address');
+        $('.nearest-name').html('Sadly there are no hubs near');
       }
     },
     error: function(){

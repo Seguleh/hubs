@@ -5,22 +5,16 @@
 #   gem 'sqlite3'
 #
 default: &default
-  # adapter:  postgresql
-  # driver:
-  # jndi:
-  # host:     localhost
-  # port:     5432
-  # database: hubsdb
-  # username: postgres
-  # password: Calamar23
-  # schema_search_path:
-  # pool:     50
   adapter:  postgresql
-  host:     <%= ENV['PG_HOSTNAME'] %>
-  port:     <%= ENV['PG_PORT'] %>
-  database: <%= ENV['PG_DB_NAME'] %>
-  username: <%= ENV['PG_USERNAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
+  driver:
+  jndi:
+  host:     localhost
+  port:     5432
+  database: hubsdb
+  username: postgres
+  password: Calamar23
+  schema_search_path:
+  pool:     50
 
 development:
   <<: *default

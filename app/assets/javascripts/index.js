@@ -1,6 +1,6 @@
 $(document).ready(function() {
   function showLoading() {
-    $('#data-load').html('<i class="fas fa-cog fa-spin"></i>')
+    $('#data-load').html('<i class="fas fa-cog fa-spin"></i> Loading...')
     $('#data-load').attr('disabled', true)
   }
 

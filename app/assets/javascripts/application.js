@@ -14,5 +14,4 @@
 //= require activestorage
 //= require jquery
 //= require turbolinks
-//= require bootstrap
 //= require dataTables/jquery.dataTables

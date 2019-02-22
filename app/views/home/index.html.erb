@@ -3,15 +3,16 @@
     <div class="col-md-12 text-center">
       <div style="padding: 20px;">
         <p>Load the data:</p>
-        <button id="data-load" class="btn btn-default btn-primary">Find</button>
+        <button id="data-load" class="btn btn-default btn-primary">Load</button>
+        <p style="color: #9b9b9b;font-size: 14px;"><em>(It might take a few seconds, thank you for being patient)</em></p>
       </div>
       <div style="padding: 20px;">
         <p>Search the data:</p>
-        <%= link_to 'Search', search_path, type: 'button', class: 'btn btn-default btn-primary' %>
+        <%= link_to 'Search', search_path, type: 'button', class: 'btn btn-default btn-primary', data: { turbolinks: false } %>
       </div>
       <div style="padding: 20px;">
         <p>Find the nearest hub from an address:</p>
-        <%= link_to 'Find Nearest', find_path, type: 'button', class: 'btn btn-default btn-primary' %>
+        <%= link_to 'Find Nearest', find_path, type: 'button', class: 'btn btn-default btn-primary', data: { turbolinks: false } %>
       </div>
     </div>
   </div>

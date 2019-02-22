@@ -6,7 +6,7 @@ ruby '2.6.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'pg', platform: [:ruby]
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -28,9 +28,7 @@ gem 'rspec-rails'
 gem 'rails-controller-testing'
 gem 'httparty'
 gem 'rubyzip'
-gem 'bootstrap'
 gem 'kaminari'
-gem 'autoprefixer-rails'
 gem 'activerecord-import', '~> 0.28.1'
 gem 'jquery-datatables-rails'
 gem 'ajax-datatables-rails'
