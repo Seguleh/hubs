@@ -14,6 +14,20 @@ RSpec.describe HomeController, type: :controller do
       expect(response.status).to eq(200)
     end
   end
+  
+  describe "Get search" do
+    it "renders the index action" do
+      get :search
+      expect(response).to render_template("search")
+    end
+  end
+
+  describe "Get find" do
+    it "renders the index action" do
+      get :find
+      expect(response).to render_template("find")
+    end
+  end
 
   describe "File & data handling" do
     it "should open file" do
