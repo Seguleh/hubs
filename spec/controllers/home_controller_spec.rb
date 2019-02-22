@@ -33,26 +33,26 @@ RSpec.describe HomeController, type: :controller do
   let(:zip) {Rails.root.to_s + "/spec/fixtures/files/file.zip"}
 
   describe "File & data handling" do
-    it "should open the file correctly" do
-      File.open(zip) do |f|
-        expect(f).to be_a File
+    it "should open correctly and expect a file" do
+      Zip::File.open(zip) do |f|
+        expect(f).to be_a Zip::File
       end
     end
 
     it "should recieve data from file" do
-      allow(File).to receive(:open).with(zip, 'wb').and_yield(buffer)
+      allow(Zip::InputStream).to receive(:open).with(zip, 'r').and_yield(buffer)
     end
 
     it "should not accept empty files" do
       expect(File.size(zip)).to be > 0
     end
 
-    it "should only be zip file type" do
+    it "should handle only zip file type" do
       type = MIME::Types.type_for(zip).first.content_type
       expect(type).to eq("application/zip")
     end
 
-    it "reads at least some data from the file" do
+    it "reads data from file" do
       expect(File.read(zip)).not_to be_nil
     end
   end
