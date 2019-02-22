@@ -6,7 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+
 /vendor/cache
+/Gemfile.lock
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
