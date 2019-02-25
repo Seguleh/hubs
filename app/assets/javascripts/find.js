@@ -29,9 +29,9 @@ function geocodeAddress(geocoder, resultsMap) {
           map: resultsMap,
           position: nearest
         });
-        $('.nearest-distance').html(Math.trunc(response.nearest[0]))
-        $('.nearest-name').html(response.info.name)
-        $('.nearest-cc').html(response.info.country_code)
+        $('.nearest-distance').html(Math.trunc(response.nearest[0]));
+        $('.nearest-name').html(response.info.name);
+        $('.nearest-cc').html(response.info.country_code);
       } else {
         $('.nearest-name').html('Sadly there are no hubs near');
       }
