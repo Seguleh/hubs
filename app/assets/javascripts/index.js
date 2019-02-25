@@ -1,11 +1,11 @@
 $(document).ready(function() {
   function showLoading() {
-    $('#data-load').html('<i class="fas fa-cog fa-spin"></i> Loading...')
-    $('#data-load').attr('disabled', true)
+    $('#data-load').html('<i class="fas fa-cog fa-spin"></i> Loading...');
+    $('#data-load').attr('disabled', true);
   }
 
   function hideLoading() {
-    $('#data-load').html('Loaded!')
+    $('#data-load').html('Loaded!');
   }
 
   $("#data-load").click(function() {
@@ -14,8 +14,8 @@ $(document).ready(function() {
       url:      '/load_data_external',
       type:     'GET',
       complete: function(result) {
-        hideLoading()
+        hideLoading();
       }
-    })
+    });
   });
-})
+});
