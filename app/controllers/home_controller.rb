@@ -71,6 +71,7 @@ class HomeController < ApplicationController
   def find_nearest
     # No reason to run this code if there is no data loaded
     if Hub.exists?
+      #API Key is no longer valid, change it so the google map loads and make it an env variable for security purposes
       query = {
         'address': params['address'],
         'key': 'AIzaSyAp29CPfDeUOLveRJstFBGldd-es4-FTnc',
